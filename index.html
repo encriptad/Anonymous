@@ -7,48 +7,73 @@
     <title>Hacking....</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="body">
+    
+    <p id="main"></p>
+
+    
     <canvas id="canvas"></canvas>
     <script type="text/javascript">
-        var canvas = document.getElementById('canvas');
-        var ctx = canvas.getContext('2d');
 
-        canvas.height = window.innerHeight;
-        canvas.width = window.innerWidth;
 
-        var texts = '01'.split('');
-        var fontSize = 16;
-        var columns = canvas.width / fontSize;
-        var drops =[];
-        for(var x = 0; x < columns; x++ ){
-            drops[x] = 1;
+        setTimeout("text1()", 1)
+        setTimeout("text2()", 5000)
+        setTimeout("text3()", 10000)
+        setTimeout("clear()", 12000)
+        setTimeout("rain()", 12000)
+
+
+
+        function text1(){
+            document.getElementById("main").innerHTML = "Sistem encryptada loading.......";
+        }
+        function text2(){
+            document.getElementById("main").innerHTML = "We will be always watching you...";
+        }
+        function text3(){
+            document.getElementById("main").innerHTML = "!! WELCOME TO ENCRIPTADA !!";
         }
 
-        function draw(){
-            ctx.fillStyle = 'rgba(0,0,0,0.05)'
-            ctx.fillRect(0,0,canvas.width,canvas.height);
-            ctx.fillStyle = '#0f0';
-            ctx.font = fontSize + 'px arial';
-            for(var i = 0; i < drops.length; i++ ){
-                var text = texts[Math.floor(Math.random()*texts.length)];
-                ctx.fillText(text,i*fontSize,drops[i]*fontSize);
-                
-                if (drops[i] * fontSize > canvas.height || Math.random() > 0.95){
-                    drops[i] = 0;
-                }  
+        function clear(){
+            document.getElementById("main").remove()
+        }
 
-                drops[i]++;
+        function rain(){
+            var canvas = document.getElementById('canvas');
+            var ctx = canvas.getContext('2d');
+
+            canvas.height = window.innerHeight;
+            canvas.width = window.innerWidth;
+
+            var texts = '01'.split('');
+            var fontSize = 16;
+            var columns = canvas.width / fontSize;
+            var drops =[];
+            for(var x = 0; x < columns; x++ ){
+                drops[x] = 1;
             }
-        }
-        setInterval(draw,33);
 
-        alert('Bem vindo a Encriptada ')
-        alert('Vc pode correr ')
-        alert('Vc pode se esconder ')    
-        alert('A encriptada vai achar vc !! ')
-        alert('Ass: Anonymous \n Ate logo ')
+            function draw(){
+                ctx.fillStyle = 'rgba(0,0,0,0.05)'
+                ctx.fillRect(0,0,canvas.width,canvas.height);
+                ctx.fillStyle = '#0f0';
+                ctx.font = fontSize + 'px arial';
+                for(var i = 0; i < drops.length; i++ ){
+                    var text = texts[Math.floor(Math.random()*texts.length)];
+                    ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+                    
+                    if (drops[i] * fontSize > canvas.height || Math.random() > 0.95){
+                        drops[i] = 0;
+                    }  
+
+                    drops[i]++;
+                }
+            }   
+            setInterval(draw,33);
+        }
         
     </script>
+
 
 </body>
 </html>
