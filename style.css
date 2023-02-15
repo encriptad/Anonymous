@@ -2,12 +2,15 @@ body{
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-image: url='Encriptada.png';
+    background-color: black;
+
 }
 
-.imagem{
-    padding: 0;
-    margin: 0;
-    opacity: 0.5;
-    
+p{
+    padding-top: 150px;
+    font-size: 60px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    align-items: center;
+    text-align: center;
+    color: green;
 }
